@@ -6,3 +6,7 @@ Planned read-only MO2 scanner, persistent compatibility database, patch tracker,
 Architecture only. No scanner, database, or UI implemented yet.
 
 See [project state](PROJECT_STATE.md) and [design](docs/ARCHITECTURE.md). Session prompts and the canonical handoff live in the SkyrimNG modlist repository.
+
+
+## Repository governance
+**All changes require a feature branch and a pull request. No direct writes to `main`, ever.** See [contribution policy](CONTRIBUTING.md) and [directory guide](docs/DIRECTORY_GUIDE.md). The owner reviews PRs before merging.
