@@ -1,23 +1,21 @@
 # SkyrimNG Companion Project State
 
 Last documented: 2026-10-19
-Status: Foundation organization. No implementation or tests verified.
+Status: Scanner v0.1 proposed on feature branch; **not merged or validated on real MO2 data**.
 
-## Intended v0.1
-- Read-only MO2 instance/profile discovery.
-- Parse `modlist.txt`, `plugins.txt`, available load order and mod metadata.
-- Preserve separator ordering and enabled/disabled states.
-- Produce deterministic, sanitized JSON snapshots and compare snapshots.
-- Never modify MO2 files in the initial scanner.
+## Proposed implementation
+- Standard-library-only read-only MO2 profile parser in `scanner/mo2_snapshot.py`.
+- Portable JSON report with modlist raw ordering, markers, plugin enablement and loadorder.
+- Optional installed mod directory names, with no content scanning.
+- Unit tests in `tests/test_mo2_snapshot.py`.
 
-## Longer-term
-SQLite persistence, compatibility evidence/rules, xEdit/LOOT integrations, desktop dashboard, GitHub sync, optional native MO2 plugin, and AI-assisted analysis through supported interfaces.
-
-## Open design questions
-Profile and portable-instance discovery, file schemas, separator edge cases, database migrations, conflict evidence model, and safe GitHub sync.
+## Limitations
+- No database, GUI, conflict analysis, metadata parsing, version tracking, or real MO2 validation yet.
+- Separator detection is heuristic; modlist raw index is not calculated priority.
+- PR approval required before changes are accepted into `development`.
 
 ## Next actions
-1. Define scanner JSON schema and fixtures.
-2. Implement profile parser and tests.
-3. Validate against a real MO2 profile supplied by the user.
-4. Define database schema after scan data is reliable.
+1. Review and merge scanner PR if acceptable.
+2. Run unit tests and validate against sanitized real MO2 profile files.
+3. Refine separator and priority parsing based on evidence.
+4. Design snapshot diff and SQLite persistence.
